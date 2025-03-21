@@ -1,3 +1,5 @@
+>If you have any questions, please contact fischertechnik-technik@fischer.de
+
 # RX Controller - I2C
 The fischertechnik [RX controller](https://www.fischertechnik.de/en/toys/e-learning/rx-controller) has 2 connections labeled EXT1 and EXT2 (see 4 in the picture). Both connections are connected to the internal I2C bus.
 <img src="https://github.com/user-attachments/assets/4d182355-48e9-44cd-be7e-8819102458d6" width="400">
