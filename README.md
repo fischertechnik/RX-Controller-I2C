@@ -13,7 +13,6 @@ The RX controller has 2 connections labeled EXT1 and EXT2 (see 4 in the picture)
 
 ## Python Code
 ### I2C Scan
-
 ```python
 #https://learn.adafruit.com/circuitpython-essentials/circuitpython-i2c
 
@@ -29,6 +28,33 @@ finally:  # unlock the i2c bus
   i2c.unlock()
 i2c.deinit()
 ```
+### Write
+```python
+with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
+  device = I2CDevice(i2c, I2C_ADDRESS)
+  with device:
+    device.write(bytes([REG,VALUE]))
+```
+
+### Read
+```python
+with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
+  device = I2CDevice(i2c, I2C_ADDRESS)
+  with device:
+    device.write(bytes([REG]))
+    pbuf = bytearray(1)
+    device.readinto(pbuf)
+    VALUE = int(pbuf[0])
+```
+
+## Examples External I2C Modules
+
+Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
+
+| sensor chip |  ROBO Pro Coding program name |
+| --- | --- |
+| all | **test_RX_i2c_device_scan** |
+| APDS9960 | **test_RX_i2c_device_apds9960** |
 
 ## fischertechnik I2C Sensors
 
@@ -46,12 +72,3 @@ i2c.deinit()
 |RGB color sensor	           |213965	      |0x14	        |Knobloch|
 |NFC module	                 |-	            |0x24	        |PN532 NFC RFID Module|
 |AGV charging module	       |-	            |0x26	        |Knobloch|
-
-## Examples External I2C Modules
-
-Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
-
-| sensor chip |  ROBO Pro Coding program name |
-| --- | --- |
-| all | test_RX_i2c_device_scan |
-| APDS9960 | test_RX_i2c_device_apds9960 |
