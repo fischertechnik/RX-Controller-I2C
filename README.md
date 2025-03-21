@@ -67,13 +67,13 @@ Some examples of external I2c modules already exist. These examples can be impor
 | ---                        | ---          | ---         | --- |
 |Environmental sensor 6-pin	 |182974     	  |0x76	        |BME680 |
 |Environmental sensor 10-pin |167358	      |0x76	        |BME680 |
-|RGB gesture sensor 6-pin	   |183267	      |0x39	        |APDS9960|
+|RGB gesture sensor 6-pin	 |183267	      |0x39	        |APDS9960|
 |RGB gesture sensor 10-pin   |186705	      |0x39	        |APDS9960|
-|Combisensor 6-polig	       |201257	      |0x68	        |ICM42670 (GYRO + ACC)|
+|Kombisensor 6-pin           |201257	      |0x68	        |ICM42670 (GYRO + ACC)|
 |                            |              |0x30 	      |MMC5603 (MAG)|
-|Combisensor	               |158402	      |0x10	        |BMX055 (MAG)|
+|Kombisensor 10-pin	         |158402	      |0x10	        |BMX055 (MAG)|
 |                            |              |0x18       	|BMX055 (ACC)|
 |                            |              |0x68	        |BMX055 (GYRO)|
-|RGB color sensor	           |213965	      |0x14	        |Knobloch|
+|RGB color sensor	         |213965	      |0x14	        |Knobloch|
 |NFC module	                 |-	            |0x24	        |PN532 NFC RFID Module|
-|AGV charging module	       |-	            |0x26	        |Knobloch|
+|AGV charging module	     |-	            |0x26	        |Knobloch|
