@@ -12,6 +12,8 @@ The fischertechnik [RX controller](https://www.fischertechnik.de/en/toys/e-learn
 > Power supply for I2C is 3.3V
 
 ## Python Code
+RX controller uses [CircuitPython](https://circuitpython.org/) which is based on Python. However, some commands differ considerably from Python. The basic functions for I2C are listed here.
+
 ### I2C Scan
 ```python
 #https://learn.adafruit.com/circuitpython-essentials/circuitpython-i2c
@@ -28,7 +30,7 @@ finally:  # unlock the i2c bus
   i2c.unlock()
 i2c.deinit()
 ```
-### Write
+### I2C Write
 ```python
 with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
   device = I2CDevice(i2c, I2C_ADDRESS)
@@ -36,7 +38,7 @@ with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
     device.write(bytes([REG,VALUE]))
 ```
 
-### Read
+### I2C Read
 ```python
 with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
   device = I2CDevice(i2c, I2C_ADDRESS)
