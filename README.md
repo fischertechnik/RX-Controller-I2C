@@ -45,7 +45,9 @@ i2c.deinit()
 |NFC module	                 |-	            |0x24	        |PN532 NFC RFID Module|
 |AGV charging module	       |-	            |0x26	        |Knobloch|
 
-## Examples External I2C Sensors
+## Examples External I2C Modules
+
+Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
 
 | sensor chip |  ROBO Pro Coding program name |
 | --- | --- |
