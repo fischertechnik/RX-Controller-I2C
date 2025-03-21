@@ -1,4 +1,6 @@
 # RX Controller - I2C
+The RX controller has 2 connections labeled EXT1 and EXT2 (see 4 in the picture). Both connections are connected to the internal I2C bus.
+<img src="https://github.com/user-attachments/assets/4d182355-48e9-44cd-be7e-8819102458d6" width="400">
 
 > [!NOTE]
 > [RX Controller Operating Instructions](https://www.fischertechnik.de/-/media/fischertechnik/rebrush/spielzeug/e-learning/smart-robots-max/lernmaterial/bedienunganleitung-rx/rx_controller_en.pdf)
