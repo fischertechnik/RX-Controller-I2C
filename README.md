@@ -13,6 +13,11 @@ The fischertechnik [RX controller](https://www.fischertechnik.de/en/toys/e-learn
 ## Python Code
 RX controller uses [CircuitPython](https://circuitpython.org/) which is based on Python. However, some commands differ considerably from Python. The basic functions for I2C are listed [here](https://learn.adafruit.com/circuitpython-essentials/circuitpython-i2c).
 
+> [!IMPORTANT]
+> * To ensure that no other function uses the I2C bus, use ```i2c.trylock()``` and ```i2c.unlock()```
+> * Use ```i2c.deinit()``` to turn off the I2C bus
+> * If you use the ```with``` statement (context manager), it automatically locks and unlocks the I2C interface
+
 ### I2C Imports
 ```python
 import board
@@ -60,7 +65,7 @@ Some examples of external I2c modules already exist. These examples can be impor
 | APDS9960 | **test_RX_i2c_device_apds9960** |
 
 ## fischertechnik I2C Sensors
-Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/addresses). All fischertechnik I2C sensors are listed in the table below.
+Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/addresses) or [www.i2c-bus.org](https://www.i2c-bus.org/). All fischertechnik I2C sensors are listed in the table below.
 
 | Sensor                     | Item Number  | I2C Address | sensor chip          | RX Controller           | TXT 4.0 Controller      | TXT Controller |
 | ---                        | ---          | ---         | ---                  | ---                     | ---                     | ---            |
@@ -76,7 +81,7 @@ Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/
 |RGB color sensor	         |213965	    |0x14	      |Knobloch              |                         | Yes (txtapi>=6.4.0)     |                |
 |NFC module	                 |-	            |0x24	      |PN532 NFC RFID Module |                         | Yes                     | Yes (C/C++)    |
 |AGV charging module	     |-	            |0x26	      |Knobloch              |                         | Yes                     |                |
-|RX Controller internal      |              |0x8          |                      | Yes                     |                         |                |
+|RESERVED                    |              |0x8          |                      | RESERVED                |                         |                |
 
 ## Connector I2C - 10-pin  (Deprecated)
 > [!WARNING]
