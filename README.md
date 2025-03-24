@@ -51,9 +51,8 @@ with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
   device = I2CDevice(i2c, I2C_ADDRESS)
   with device:
     device.write(bytes([REG]))
-    pbuf = bytearray(1)
-    device.readinto(pbuf)
-    VALUE = int(pbuf[0])
+    VALUE = bytearray(1)
+    device.readinto(VALUE)
 ```
 
 ### Examples External I2C Modules
