@@ -60,6 +60,7 @@ Some examples of external I2c modules already exist. These examples can be impor
 | APDS9960 | **test_RX_i2c_device_apds9960** |
 
 ## fischertechnik I2C Sensors
+Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/addresses). All fischertechnik I2C sensors are listed in the table below.
 
 | Sensor                     | Item Number  | I2C Address | sensor chip          | RX Controller           | TXT 4.0 Controller      | TXT Controller |
 | ---                        | ---          | ---         | ---                  | ---                     | ---                     | ---            |
@@ -75,6 +76,7 @@ Some examples of external I2c modules already exist. These examples can be impor
 |RGB color sensor	         |213965	    |0x14	      |Knobloch              |                         | Yes (txtapi>=6.4.0)     |                |
 |NFC module	                 |-	            |0x24	      |PN532 NFC RFID Module |                         | Yes                     | Yes (C/C++)    |
 |AGV charging module	     |-	            |0x26	      |Knobloch              |                         | Yes                     |                |
+|RX Controller internal      |              |0x8          |                      | Yes                     |                         |                |
 
 ## Connector I2C - 10-pin  (Deprecated)
 > [!WARNING]
