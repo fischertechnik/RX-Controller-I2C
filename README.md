@@ -16,7 +16,7 @@ RX controller uses [CircuitPython](https://circuitpython.org/) which is based on
 > [!IMPORTANT]
 > * To ensure that no other function uses the I2C bus, use ```i2c.trylock()``` and ```i2c.unlock()```
 > * Use ```i2c.deinit()``` to turn off the I2C bus
-> * If you use the ```with``` statement (context manager), it automatically locks and unlocks the I2C interface
+> * If you use the ```with``` statement ([context manager](https://book.pythontips.com/en/latest/context_managers.html)), it automatically locks and unlocks the I2C interface
 
 ### I2C Imports
 ```python
@@ -56,13 +56,12 @@ with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
 ```
 
 ### Examples External I2C Modules
-
 Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
 
 | sensor chip |  ROBO Pro Coding program name |
-| --- | --- |
-| all | **test_RX_i2c_device_scan** |
-| APDS9960 | **test_RX_i2c_device_apds9960** |
+| ---         | --- |
+|             | *test_RX_i2c_device_scan* |
+| APDS9960    | *test_RX_i2c_device_apds9960* |
 
 ## fischertechnik I2C Sensors
 Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/addresses) or [www.i2c-bus.org](https://www.i2c-bus.org/). All fischertechnik I2C sensors are listed in the table below.
