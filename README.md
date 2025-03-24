@@ -23,11 +23,12 @@ RX controller uses [CircuitPython](https://circuitpython.org/) which is based on
 import board
 import busio
 from adafruit_bus_device.i2c_device import I2CDevice
+from fischertechnik.logging import log as print
 ```
 
 ### I2C Scan
 ```python
-i2c =busio.I2C(board.SCL1, board.SDA1, frequency=400000)
+i2c = busio.I2C(board.SCL1, board.SDA1, frequency=400000)
 while not i2c.try_lock():
     pass
 try:
