@@ -63,6 +63,17 @@ Some examples of external I2c modules already exist. These examples can be impor
 |             | *test_RX_i2c_device_scan* |
 | APDS9960    | *test_RX_i2c_device_apds9960* |
 
+### Using I2C with Blockly and Python
+Please note that with the RX firmware 0.23.1 it is not possible to access from Blockly and Python at the same time, as the I2C instance cannot be used simultaneously.
+
+If the following error occurs, the RX controller must be switched off and on again.
+```python
+Traceback (most recent call last):
+  File "asyncio/core.py", line 246, in run_until_complete
+  File "user/mainCode.py", line 100, in run
+ValueError: SCL1 in use
+```
+
 ## fischertechnik I2C Sensors
 Some I2C addresses are already reserved, see e.g. [here](https://i2cdevices.org/addresses) or [www.i2c-bus.org](https://www.i2c-bus.org/). All fischertechnik I2C sensors are listed in the table below.
 
