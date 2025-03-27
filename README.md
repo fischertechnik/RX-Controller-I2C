@@ -82,8 +82,7 @@ async def i2cWriteReadBuffer(i2cAdr, write_buffer, read_length):
 ### Examples External I2C Modules
 Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
 
-![image](https://github.com/user-attachments/assets/e2e3b200-94ff-4f32-8818-af6b87ce2d57)
-
+<img src="https://github.com/user-attachments/assets/e2e3b200-94ff-4f32-8818-af6b87ce2d57" width="600">
 
 | sensor chip |  ROBO Pro Coding program name |
 | ---         | ---                           |
