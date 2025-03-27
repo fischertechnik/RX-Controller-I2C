@@ -28,39 +28,54 @@ from fischertechnik.logging import log as print
 
 ### I2C Scan
 ```python
-i2c = busio.I2C(board.SCL1, board.SDA1, frequency=400000)
-while not i2c.try_lock():
-    pass
-try:
-  print("I2C addresses found:", [hex(device_address) for device_address in i2c.scan()],)
-finally:  # unlock the i2c bus
-  i2c.unlock()
-i2c.deinit()
-```
-### I2C Write
-```python
-with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
-  device = I2CDevice(i2c, I2C_ADDRESS)
-  with device:
-    device.write(bytes([REG,VALUE]))
+async def i2cScan():
+    i2c = busio.I2C(board.SCL1, board.SDA1, frequency=400000)
+    while not i2c.try_lock():
+        pass
+    try:
+      #print("I2C addresses found:", [hex(device_address) for device_address in i2c.scan()],)
+      i2cList = i2c.scan()
+    finally:  # unlock the i2c bus
+      i2c.unlock()
+    i2c.deinit()
+    return i2cList
 ```
 
-### I2C WriteRead
+### I2C Write Buffer
 ```python
-with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
-  device = I2CDevice(i2c, I2C_ADDRESS)
-  with device:
-    device.write(bytes([REG]))
-    VALUE = bytearray(1)
-    device.readinto(VALUE)
+async def i2cWriteBuffer(i2cAdr, write_buffer):
+    with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
+      with I2CDevice(i2c, i2cAdr) as device:
+        device.write(write_buffer)
+```
+
+### I2C Read Buffer
+```python
+async def i2cReadBuffer(i2cAdr, read_length):
+    read_buffer = bytearray(read_length)
+    with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
+      with I2CDevice(i2c, i2cAdr) as device:
+        device.readinto(read_buffer)
+    return read_buffer
+```
+
+### I2C Write Read Buffer
+```python
+async def i2cWriteReadBuffer(i2cAdr, write_buffer, read_length):
+    read_buffer = bytearray(read_length)
+    with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
+      with I2CDevice(i2c, i2cAdr) as device:
+        device.write_then_readinto(write_buffer, read_buffer)
+    return read_buffer
 ```
 
 ### Examples External I2C Modules
 Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
 
 | sensor chip |  ROBO Pro Coding program name |
-| ---         | --- |
-|             | *test_RX_i2c_device_scan* |
+| ---         | ---                           |
+|             | *test_RX_i2c_device_scan*     |
+|             | *test_RX_i2c_device_template* |
 | APDS9960    | *test_RX_i2c_device_apds9960* |
 
 ### Using I2C with Blockly and Python
