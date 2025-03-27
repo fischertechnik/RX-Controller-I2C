@@ -26,6 +26,8 @@ from adafruit_bus_device.i2c_device import I2CDevice
 from fischertechnik.logging import log as print
 ```
 
+![image](https://github.com/user-attachments/assets/a6ab6f5d-1f6a-430d-afac-cc1542a565d5)
+
 ### I2C Scan
 ```python
 async def i2cScan():
@@ -41,6 +43,8 @@ async def i2cScan():
     return i2cList
 ```
 
+![image](https://github.com/user-attachments/assets/4d2d1c66-8b26-4ef8-814f-9263d010d8ac)
+
 ### I2C Write Buffer
 ```python
 async def i2cWriteBuffer(i2cAdr, write_buffer):
@@ -48,6 +52,8 @@ async def i2cWriteBuffer(i2cAdr, write_buffer):
       with I2CDevice(i2c, i2cAdr) as device:
         device.write(write_buffer)
 ```
+
+![image](https://github.com/user-attachments/assets/1abfe609-4064-488b-bea6-d0c19d036f2a)
 
 ### I2C Read Buffer
 ```python
@@ -59,6 +65,8 @@ async def i2cReadBuffer(i2cAdr, read_length):
     return read_buffer
 ```
 
+![image](https://github.com/user-attachments/assets/35210d7d-a51f-4897-9415-552e391d3270)
+
 ### I2C Write Read Buffer
 ```python
 async def i2cWriteReadBuffer(i2cAdr, write_buffer, read_length):
@@ -68,6 +76,8 @@ async def i2cWriteReadBuffer(i2cAdr, write_buffer, read_length):
         device.write_then_readinto(write_buffer, read_buffer)
     return read_buffer
 ```
+
+![image](https://github.com/user-attachments/assets/7642db63-b559-410f-89c9-8bb94d757236)
 
 ### Examples External I2C Modules
 Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
