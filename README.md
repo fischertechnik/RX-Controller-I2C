@@ -50,10 +50,10 @@ async def i2cScan():
 async def i2cWriteBuffer(i2cAdr, write_buffer):
     with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
       with I2CDevice(i2c, i2cAdr) as device:
-        device.write(write_buffer)
+        device.write(bytes(write_buffer))
 ```
 
-![image](https://github.com/user-attachments/assets/1abfe609-4064-488b-bea6-d0c19d036f2a)
+![image](https://github.com/user-attachments/assets/6cf32e8c-bd33-45dd-bb4c-2da75176b149)
 
 ### I2C Read Buffer
 ```python
@@ -65,7 +65,7 @@ async def i2cReadBuffer(i2cAdr, read_length):
     return read_buffer
 ```
 
-![image](https://github.com/user-attachments/assets/35210d7d-a51f-4897-9415-552e391d3270)
+![image](https://github.com/user-attachments/assets/be48615e-73f8-413b-aa6f-d5763f89055d)
 
 ### I2C Write Read Buffer
 ```python
@@ -73,11 +73,11 @@ async def i2cWriteReadBuffer(i2cAdr, write_buffer, read_length):
     read_buffer = bytearray(read_length)
     with busio.I2C(board.SCL1, board.SDA1, frequency=400000) as i2c:
       with I2CDevice(i2c, i2cAdr) as device:
-        device.write_then_readinto(write_buffer, read_buffer)
+        device.write_then_readinto(bytes(write_buffer), read_buffer)
     return read_buffer
 ```
 
-![image](https://github.com/user-attachments/assets/7642db63-b559-410f-89c9-8bb94d757236)
+![image](https://github.com/user-attachments/assets/c4bed9b8-06e4-441d-9262-ec183a3117be)
 
 ### Examples External I2C Modules
 Some examples of external I2c modules already exist. These examples can be imported with the [ROBO Pro Coding](https://www.fischertechnik.de/en/apps-and-software#apps) app.
