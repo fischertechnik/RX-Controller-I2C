@@ -90,7 +90,7 @@ Some examples of external I2c modules already exist. These examples can be impor
 |             | *test_RX_i2c_device_template* |
 | APDS9960    | *test_RX_i2c_device_apds9960* |
 
-[Further examples](https://elssner.github.io/ft-Controller-I2C/) of [I2C sensors](https://elssner.github.io/ft-Controller-I2C/#tabelle-1) can be found in a ROBO Pro Coding project called **ft_Controller_I2C**. The documentation (German) was created by the user [elssner](https://github.com/elssner). Many thanks for the very detailed examples!
+[Further examples](https://elssner.github.io/ft-Controller-I2C/) of [I2C modules](https://elssner.github.io/ft-Controller-I2C/#tabelle-1) can be found in a ROBO Pro Coding project called **ft_Controller_I2C**. The documentation (German) was created by the user [elssner](https://github.com/elssner). Many thanks for the very detailed examples!
 
 ### Using I2C with Blockly and Python
 Please note that with the RX firmware 0.23.1 it is not possible to access from Blockly and Python at the same time, as the I2C instance cannot be used simultaneously.
