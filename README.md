@@ -93,6 +93,8 @@ Some examples of external I2c modules already exist. These examples can be impor
 [Further examples](https://elssner.github.io/ft-Controller-I2C/) of [I2C modules](https://elssner.github.io/ft-Controller-I2C/#tabelle-1) can be found in a ROBO Pro Coding project called **ft_Controller_I2C**. The documentation (German) was created by the user [elssner](https://github.com/elssner). Many thanks for the very detailed examples!
 
 ### Using I2C with Blockly and Python
+
+#### RX firmware 0.23.1
 Please note that with the RX firmware 0.23.1 it is not possible to access from Blockly and Python at the same time, as the I2C instance cannot be used simultaneously.
 
 If the following error occurs, the RX controller must be switched off and on again.
@@ -101,6 +103,17 @@ Traceback (most recent call last):
   File "asyncio/core.py", line 246, in run_until_complete
   File "user/mainCode.py", line 100, in run
 ValueError: SCL1 in use
+```
+
+#### RX firmware 0.27.0
+In RX firmware 0.27.0 it is now possible to access from Blockly and Python at the same time. Use the following function to get the I2CDevice:
+
+```python
+global i2c
+import fischertechnik.factories as rx_factory
+if rx_factory.i2c_factory is None:
+  rx_factory.init_i2c_factory()
+i2c = rx_factory.i2c_factory.get_i2c_bus(instance)._i2c
 ```
 
 ## fischertechnik I2C Sensors
